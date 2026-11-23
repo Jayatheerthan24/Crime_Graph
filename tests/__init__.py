@@ -1,0 +1,3 @@
+"""
+CrimeGraph AI Test Suite
+"""

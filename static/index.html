@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CrimeGraph AI — Multi-Agent Investigator Dashboard</title>
+    <link rel="stylesheet" href="/static/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="app-header">
+        <div class="header-left">
+            <div class="badge">NCRB · SIH26189 · TEAM NEXORA</div>
+            <h1>CRIMEGRAPH AI <span>Multi-Agent Criminal Network Intelligence</span></h1>
+        </div>
+        <div class="header-right">
+            <div id="system-status-indicator" class="status-pill healthy">SYSTEM ONLINE</div>
+            <button id="trigger-btn" class="btn btn-primary">Run Sample Investigation</button>
+        </div>
+    </header>
+
+    <main class="dashboard-container">
+        <!-- Top Banner: Investigation State Machine -->
+        <section class="state-machine-banner">
+            <div class="banner-title">INVESTIGATION WORKFLOW STATE MACHINE</div>
+            <div class="state-steps" id="state-steps">
+                <div class="step" data-step="PENDING">1. PENDING</div>
+                <div class="step-line"></div>
+                <div class="step" data-step="RUNNING">2. RUNNING (SOURCES)</div>
+                <div class="step-line"></div>
+                <div class="step" data-step="VALIDATING">3. VALIDATING (RESOLUTION)</div>
+                <div class="step-line"></div>
+                <div class="step" data-step="GRAPH_PROCESSING">4. GRAPH PROCESSING</div>
+                <div class="step-line"></div>
+                <div class="step" data-step="ANALYSIS">5. ANALYSIS (ANOMALIES)</div>
+                <div class="step-line"></div>
+                <div class="step" data-step="COMPLETED">6. COMPLETED</div>
+            </div>
+            <div class="active-case-meta">
+                <span>Active Case: <strong id="lbl-case-id">CASE-2026-DEL-0418</strong></span>
+                <span>Investigation ID: <strong id="lbl-inv-id">INV-READY</strong></span>
+                <span>Current State: <strong id="lbl-state-status" class="status-tag">READY</strong></span>
+            </div>
+        </section>
+
+        <!-- Agent Execution Grid (11 Agents) -->
+        <section class="agents-grid-section">
+            <h2>Specialized AI Agent Swarm (11 Agents)</h2>
+            <div class="agents-grid" id="agents-grid">
+                <!-- Dynamically populated -->
+            </div>
+        </section>
+
+        <!-- 3-Column Intelligence Workspace -->
+        <div class="three-col-layout">
+            <!-- Col 1: Behavioral Anomalies -->
+            <section class="card col-card">
+                <div class="card-header">
+                    <h3>Behavioral Anomaly Feed</h3>
+                    <span id="badge-anomalies-count" class="badge-count">0</span>
+                </div>
+                <div class="card-content scroll-content" id="anomalies-feed">
+                    <p class="empty-state">Trigger an investigation to stream behavioral anomalies...</p>
+                </div>
+            </section>
+
+            <!-- Col 2: Identity Resolution & SIM Churn -->
+            <section class="card col-card">
+                <div class="card-header">
+                    <h3>Identity Intelligence & SIM Churn</h3>
+                    <span id="badge-identities-count" class="badge-count">0</span>
+                </div>
+                <div class="card-content scroll-content" id="identities-feed">
+                    <p class="empty-state">Multi-signal identity correlations will populate here...</p>
+                </div>
+            </section>
+
+            <!-- Col 3: Key-Player Structural Rankings -->
+            <section class="card col-card">
+                <div class="card-header">
+                    <h3>Structural Key Players (GDS)</h3>
+                    <span id="badge-players-count" class="badge-count">0</span>
+                </div>
+                <div class="card-content scroll-content" id="key-players-feed">
+                    <p class="empty-state">Centrality & community rankings will appear here...</p>
+                </div>
+            </section>
+        </div>
+
+        <!-- Bottom Section: Executive Dossier Viewer -->
+        <section class="card dossier-section">
+            <div class="card-header">
+                <h3>Final Validated Investigation Dossier</h3>
+                <span class="badge">Grounding & Provenance Audited</span>
+            </div>
+            <div class="card-content">
+                <pre id="dossier-viewer" class="code-viewer">Click "Run Sample Investigation" to initiate the multi-agent pipeline and generate the complete intelligence dossier.</pre>
+            </div>
+        </section>
+    </main>
+
+    <script src="/static/dashboard.js"></script>
+</body>
+</html>
